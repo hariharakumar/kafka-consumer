@@ -1,4 +1,6 @@
-This application consumes messages from kafka topic.
+This application consumes messages from kafka topic. Make sure Kafka and zookeper are up and running on the machine we want to run kafka producer.
+
+Instructions for Kafka setup : http://kafka.apache.org/documentation.html#quickstart
 
 Build the Jar : gradle clean build fatjar -x test
 

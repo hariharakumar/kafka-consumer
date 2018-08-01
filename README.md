@@ -4,7 +4,7 @@ Build the Jar : gradle clean build fatjar -x test
 
 Run the application :
 
-java -jar <jarForApplication> <topicName> <groupName>
+java -jar [jarForApplication] [topicName] [groupName]
 
 We need to pass 2 command line arguements to start the application.
 

@@ -1,4 +1,4 @@
-This application consumes messages from kafka topic. Make sure Kafka and zookeper are up and running on the machine we want to run kafka producer.
+This application consumes messages from kafka topic. Make sure Kafka and zookeper are up and running on the machine we want to run kafka consumer.
 
 Instructions for Kafka setup : http://kafka.apache.org/documentation.html#quickstart
 

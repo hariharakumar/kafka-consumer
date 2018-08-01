@@ -15,3 +15,31 @@ dependencies {
             [group: 'org.apache.kafka', name:'kafka-clients', version: '1.1.1']
     )
 }
+
+task buildInfo {
+    def cmd = "git rev-parse --short HEAD"
+    def proc = cmd.execute()
+    ext.revision = proc.text.trim()
+    ext.timestamp = (int)(new Date().getTime() / 1000)
+}
+
+tasks.withType(Jar) {
+    destinationDir = file("$rootDir" + "/build/" + buildInfo.ext.revision)
+}
+
+task fatJar(type: Jar) {
+    baseName = 'kafka-consumer-' + buildInfo.ext.revision + '-all'
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
+    manifest {
+        attributes 'Main-Class': 'KafkaConsumer'
+    }
+}
+
+jar {
+    baseName = 'kafka-consumer-' + buildInfo.ext.revision
+    apply plugin: 'java'
+    manifest {
+        attributes 'Main-Class': 'KafkaConsumer'
+    }
+}

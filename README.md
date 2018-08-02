@@ -8,7 +8,7 @@ Run the application :
 
 java -jar [jarForApplication] [topicName] [groupName]
 
-We need to pass 2 command line arguements to start the application.
+We need to pass 2 command line arguements : topicName and groupName to start the application.
 
 Ex : java -jar build/9984d94/kafka-consumer-9984d94-all-1.0-SNAPSHOT.jar hari group1
 
